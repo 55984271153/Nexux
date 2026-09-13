@@ -1,3 +1,19 @@
+- name: Configurar Java
+      - name: Preparar projeto
+        run: |
+          mkdir nexus_project
+          unzip -q NEXUS_APK_v1_source.zip -d nexus_project
+
+      - name: Corrigir layout
+        working-directory: nexus_project
+        run: |
+          sed -i 's/android:hintTextColor/android:textColorHint/' app/src/main/res/layout/activity_main.xml
+          sed -i 's/android:layout_marginTop="auto"/android:layout_marginTop="24dp"/' app/src/main/res/layout/activity_main.xml
+
+      - name: Configurar Java
+    
+
+
 name: Gerar NEXUS APK
 
 on:
